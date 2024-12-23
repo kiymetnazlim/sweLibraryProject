@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Yönetim Paneli</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #ffa500; /* Turuncu arka plan */
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: auto;
+        }
+
+        .navbar .nav-link {
+            color: #fff !important;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .btn-logout {
+            color: #fff !important;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5); /* Turuncu shadow */
+            margin-top: 20px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff4500; /* Koyu turuncu */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn-icons-png.flaticon.com/512/5823/5823722.png" alt="Logo">
+            </a>
+            <ul class="navbar-nav mx-auto d-flex flex-row">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Rezervasyon Yönetimi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kitap Yönetimi</a>
+                </li>
+            </ul>
+            <a href="#" class="btn-logout">
+                <i class="bi bi-box-arrow-right"></i> Oturumu Kapat
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        @RenderBody()
+    </main>
+
+    <!-- Footer (isteğe bağlı) -->
+   @*  <footer class="text-center py-3" style="background-color: #ffa500; color: #fff;">
+        <p>© 2024 Yönetim Paneli</p>
+    </footer> *@
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

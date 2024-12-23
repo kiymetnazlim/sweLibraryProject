@@ -1,0 +1,271 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\views\\admin\\reservationmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:views\\admin\\reservationmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\views\\admin\\bookmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:views\\admin\\bookmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\views\\home\\favorities.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:views\\home\\favorities.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\views\\book\\bookdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:views\\book\\bookdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\models\\mydbcontextcs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:models\\mydbcontextcs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\views\\borrowing\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:views\\borrowing\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\views\\home\\loanhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:views\\home\\loanhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|c:\\users\\hakgl\\onedrive\\desktop\\yeni klas\u00F6r\\.net\\libraryproject10\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4FACFDCA-9392-4B6F-A5DF-C1108D152972}|LibraryProject10.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Favorities.cshtml",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Home\\Favorities.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Favorities.cshtml",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Home\\Favorities.cshtml",
+              "RelativeToolTip": "Views\\Home\\Favorities.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-22T21:11:43.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-22T10:04:12.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-22T10:06:20.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BookManagement.cshtml",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Admin\\BookManagement.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\BookManagement.cshtml",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Admin\\BookManagement.cshtml",
+              "RelativeToolTip": "Views\\Admin\\BookManagement.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-22T10:04:06.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReservationManagement.cshtml",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Admin\\ReservationManagement.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\ReservationManagement.cshtml",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Admin\\ReservationManagement.cshtml",
+              "RelativeToolTip": "Views\\Admin\\ReservationManagement.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-22T10:22:04.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-22T20:51:25.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BookDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Book\\BookDetails.cshtml",
+              "RelativeDocumentMoniker": "Views\\Book\\BookDetails.cshtml",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Book\\BookDetails.cshtml",
+              "RelativeToolTip": "Views\\Book\\BookDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-22T20:57:10.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ReservationController.cs",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Controllers\\ReservationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReservationController.cs",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Controllers\\ReservationController.cs",
+              "RelativeToolTip": "Controllers\\ReservationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T10:45:14.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T10:03:33.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T10:04:29.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MyDbContextcs.cs",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Models\\MyDbContextcs.cs",
+              "RelativeDocumentMoniker": "Models\\MyDbContextcs.cs",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Models\\MyDbContextcs.cs",
+              "RelativeToolTip": "Models\\MyDbContextcs.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAwwJcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T10:23:46.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LoanHistory.cshtml",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Home\\LoanHistory.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\LoanHistory.cshtml",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Home\\LoanHistory.cshtml",
+              "RelativeToolTip": "Views\\Home\\LoanHistory.cshtml",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAtwGYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-22T11:04:27.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T11:05:04.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Borrowing\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Borrowing\\Index.cshtml",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\Views\\Borrowing\\Index.cshtml",
+              "RelativeToolTip": "Views\\Borrowing\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-22T11:59:06.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\hakgl\\OneDrive\\Desktop\\Yeni klas\u00F6r\\.Net\\LibraryProject10\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-22T10:23:34.951Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
