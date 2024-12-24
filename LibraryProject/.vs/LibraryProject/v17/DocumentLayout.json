@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|c:\\users\\k\u0131ymet\\onedrive - manisa celal bayar \u00FCniversitesi\\masa\u00FCst\u00FC\\libraryproject\\libraryproject\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|solutionrelative:libraryproject\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|c:\\users\\k\u0131ymet\\onedrive - manisa celal bayar \u00FCniversitesi\\masa\u00FCst\u00FC\\libraryproject\\libraryproject\\views\\admin\\reservationmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|solutionrelative:libraryproject\\views\\admin\\reservationmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|c:\\users\\k\u0131ymet\\onedrive - manisa celal bayar \u00FCniversitesi\\masa\u00FCst\u00FC\\libraryproject\\libraryproject\\views\\admin\\bookmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|solutionrelative:libraryproject\\views\\admin\\bookmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|c:\\users\\k\u0131ymet\\onedrive - manisa celal bayar \u00FCniversitesi\\masa\u00FCst\u00FC\\libraryproject\\libraryproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|solutionrelative:libraryproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|c:\\users\\k\u0131ymet\\onedrive - manisa celal bayar \u00FCniversitesi\\masa\u00FCst\u00FC\\libraryproject\\libraryproject\\pages\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|solutionrelative:libraryproject\\pages\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|c:\\users\\k\u0131ymet\\onedrive - manisa celal bayar \u00FCniversitesi\\masa\u00FCst\u00FC\\libraryproject\\libraryproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9F21ECD-60E9-45F8-94D6-009F9EA0B257}|LibraryProject\\LibraryProject.csproj|solutionrelative:libraryproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "LibraryProject\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "LibraryProject\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-24T11:34:42.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "LibraryProject\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "LibraryProject\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-24T11:30:59.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookManagement.cshtml",
+              "DocumentMoniker": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Views\\Admin\\BookManagement.cshtml",
+              "RelativeDocumentMoniker": "LibraryProject\\Views\\Admin\\BookManagement.cshtml",
+              "ToolTip": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Views\\Admin\\BookManagement.cshtml",
+              "RelativeToolTip": "LibraryProject\\Views\\Admin\\BookManagement.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-24T11:30:52.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Pages\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "LibraryProject\\Pages\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Pages\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "LibraryProject\\Pages\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-24T11:28:51.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReservationManagement.cshtml",
+              "DocumentMoniker": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Views\\Admin\\ReservationManagement.cshtml",
+              "RelativeDocumentMoniker": "LibraryProject\\Views\\Admin\\ReservationManagement.cshtml",
+              "ToolTip": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Views\\Admin\\ReservationManagement.cshtml*",
+              "RelativeToolTip": "LibraryProject\\Views\\Admin\\ReservationManagement.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-24T11:30:34.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "LibraryProject\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\K\u0131ymet\\OneDrive - Manisa Celal Bayar \u00DCniversitesi\\Masa\u00FCst\u00FC\\LibraryProject\\LibraryProject\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "LibraryProject\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T11:30:17.219Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
