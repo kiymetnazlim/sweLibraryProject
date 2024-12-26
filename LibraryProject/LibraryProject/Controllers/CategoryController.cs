@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace LibraryProject10.Controllers
+namespace LibraryProject.Controllers
 {
     public class CategoryController : Controller
     {

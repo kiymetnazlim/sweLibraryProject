@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kıymet\\OneDrive - Manisa Celal Bayar Üniversitesi\\Masaüstü\\LibraryProject\\LibraryProject\\LibraryProject.csproj": {}
+    "C:\\Users\\Kıymet\\source\\repos\\LibraryProject\\LibraryProject\\LibraryProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kıymet\\OneDrive - Manisa Celal Bayar Üniversitesi\\Masaüstü\\LibraryProject\\LibraryProject\\LibraryProject.csproj": {
+    "C:\\Users\\Kıymet\\source\\repos\\LibraryProject\\LibraryProject\\LibraryProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kıymet\\OneDrive - Manisa Celal Bayar Üniversitesi\\Masaüstü\\LibraryProject\\LibraryProject\\LibraryProject.csproj",
+        "projectUniqueName": "C:\\Users\\Kıymet\\source\\repos\\LibraryProject\\LibraryProject\\LibraryProject.csproj",
         "projectName": "LibraryProject",
-        "projectPath": "C:\\Users\\Kıymet\\OneDrive - Manisa Celal Bayar Üniversitesi\\Masaüstü\\LibraryProject\\LibraryProject\\LibraryProject.csproj",
+        "projectPath": "C:\\Users\\Kıymet\\source\\repos\\LibraryProject\\LibraryProject\\LibraryProject.csproj",
         "packagesPath": "C:\\Users\\Kıymet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kıymet\\OneDrive - Manisa Celal Bayar Üniversitesi\\Masaüstü\\LibraryProject\\LibraryProject\\obj\\",
+        "outputPath": "C:\\Users\\Kıymet\\source\\repos\\LibraryProject\\LibraryProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

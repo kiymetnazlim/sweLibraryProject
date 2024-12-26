@@ -32,6 +32,11 @@ namespace LibraryProject.Controllers
             return View();
         }
 
+        public IActionResult SearchPage()
+        {
+            return View();
+        }
+
     }
 }
 

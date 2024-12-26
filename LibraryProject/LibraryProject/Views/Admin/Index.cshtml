@@ -15,7 +15,7 @@
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">Üye Sayısı</h5>
-                <p class="card-text display-4">120</p>
+                <p class="card-text display-4">@ViewData["UserCount"]</p>
             </div>
         </div>
     </div>
@@ -23,8 +23,15 @@
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">Kitap Sayısı</h5>
-                <p class="card-text display-4">450</p>
+                <p class="card-text display-4">@ViewData["BookCount"]</p>
             </div>
         </div>
     </div>
-</div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Rezervasyon Sayısı</h5>
+                <p class="card-text display-4">@ViewData["reservationCount"]</p>
+            </div>
+        </div>
+</div

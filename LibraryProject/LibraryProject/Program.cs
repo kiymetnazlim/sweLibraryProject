@@ -32,6 +32,16 @@ app.UseAuthorization();
 
 // Rota yap�land�rmas�
 app.MapControllerRoute(
+    name: "loginpage",
+    pattern: "login",
+    defaults: new { controller = "User", action = "LogIn" });
+
+app.MapControllerRoute(
+    name: "registerpage",
+    pattern: "register",
+    defaults: new { controller = "User", action = "Register" });
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
@@ -61,14 +71,10 @@ app.MapControllerRoute(
     pattern: "home/profiles",
     defaults: new { controller = "Home", action = "Profiles" });
 
-app.MapControllerRoute(
-    name: "booklist",
-    pattern: "booklist",
-    defaults: new { controller = "Book", action = "BookList" });
 
 app.MapControllerRoute(
     name: "bookdetails",
-    pattern: "booklist/book-details",
+    pattern: "home/book-details",
     defaults: new { controller = "Book", action = "BookDetails" });
 
 app.MapControllerRoute(
@@ -78,8 +84,19 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "bookmanagement",
+
     pattern: "admin/book-management",
     defaults: new { controller = "Admin", action = "BookManagement" });
+
+app.MapControllerRoute(
+    name: "searchpage",
+    pattern: "home/search-page",
+    defaults: new { controller = "Home", action = "SearchPage" });
+
+app.MapControllerRoute(
+    name: "addbook",
+    pattern: "admin/search-page",
+    defaults: new { controller = "Admin", action = "AddBook" });
 
 
 

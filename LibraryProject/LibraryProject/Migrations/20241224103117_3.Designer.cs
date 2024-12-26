@@ -3,6 +3,7 @@ using System;
 using LibraryProject;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LibraryProject.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    partial class LibraryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241224103117_3")]
+    partial class _3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,6 +82,9 @@ namespace LibraryProject.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("BorrowId"));
+
+                    b.Property<DateTime?>("ActualReturnDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Author")
                         .IsRequired()
@@ -183,10 +189,6 @@ namespace LibraryProject.Migrations
                     b.Property<DateTime>("ReservationDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("ReservationStatus")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
 
@@ -208,9 +210,11 @@ namespace LibraryProject.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("ContactDetails")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
@@ -222,6 +226,7 @@ namespace LibraryProject.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Role")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("UserId");

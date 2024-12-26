@@ -101,9 +101,24 @@ namespace LibraryProject
         public DateTime? ReturnDate { get; set; }
         public decimal? OverdueFine { get; set; }
 
+
+
         // Navigation properties
         public User User { get; set; }
         public Book Book { get; set; }
+
+
+        public static decimal CalculateOverdueFine(DateTime dueDate, DateTime? returnDate)
+        {
+            if (returnDate == null || returnDate <= dueDate)
+            {
+                return 0; // Ceza yok
+            }
+
+            TimeSpan overdueDays = returnDate.Value - dueDate;
+            return (decimal)overdueDays.Days * 1; // Günlük ceza: 1 TL
+        }
+
     }
 
     public class Category
@@ -135,20 +150,23 @@ namespace LibraryProject
         public int BookId { get; set; }
         public DateTime ReservationDate { get; set; }
         public DateTime AvailableDate { get; set; }
+        public string ReservationStatus { get; set; }
+
 
         // Navigation properties
         public User User { get; set; }
         public Book Book { get; set; }
+
     }
 
     public class User
     {
         public int UserId { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
+        public string? Email { get; set; }
         public string Password { get; set; }
-        public string Role { get; set; }
-        public string ContactDetails { get; set; }
+        public string? Role { get; set; }
+        public string? ContactDetails { get; set; }
 
         // Navigation properties
         public ICollection<Borrowing> Borrowings { get; set; }

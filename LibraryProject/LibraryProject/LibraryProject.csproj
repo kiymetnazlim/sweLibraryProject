@@ -19,4 +19,11 @@
     <Folder Include="Views\Resevation\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Admin\AddBook.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

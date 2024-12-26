@@ -1,12 +1,99 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿// USERCONTROLLER
 
-namespace LibraryProject10.Controllers
+using LibraryProject.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using LibraryProject.Models.ViewModel;
+using LibraryProject;
+
+public class UserController : Controller
 {
-    public class UserController : Controller
+    private readonly LibraryDbContext _context;
+
+    public UserController(LibraryDbContext context)
     {
-        public IActionResult Index()
+        _context = context;
+    }
+
+    // Register GET
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    // Register POST
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Register(RegisterViewModel model)
+    {
+        if (ModelState.IsValid)
         {
-            return View();
+            var user = new User
+            {
+                Name = model.Name,
+                Password = model.Password // Şifreleme yapmanız önerilir.
+            };
+
+            try
+            {
+                _context.Users.Add(user);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine(ex.InnerException?.Message);
+                throw; // Hata mesajını loglayıp fırlatabilirsiniz
+            }
+
+            return RedirectToAction("LogIn", "User");
         }
+
+        return View(model);
+    }
+
+    // LogIn GET
+    public IActionResult Login()
+    {
+        return View();
+    }
+
+    // LogIn POST
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Login(LogInViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Name == model.Name && u.Password == model.Password);
+
+            if (user != null)
+            {
+                // Session değerlerini ayarla
+                HttpContext.Session.SetInt32("UserId", user.UserId);
+                HttpContext.Session.SetString("UserName", user.Name);
+
+                if (user.Role == "Staff")
+                {
+                    return RedirectToAction("Index", "Admin"); // Admin sayfası
+                }
+                else
+                {
+                    return RedirectToAction("ReservationManagement", "Admin"); // Kullanıcı sayfası
+                    //NORMAL KULLANICI SAYFASINA GİDECEK
+                }
+
+            }
+
+            ModelState.AddModelError("", "Invalid name or password.");
+        }
+
+        return View(model);
+    }
+
+    // Logout
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear();
+        return RedirectToAction("Login");
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JgzHYG/LNTI=",
+  "dgSpecHash": "wSWcFGlUjJY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kıymet\\OneDrive - Manisa Celal Bayar Üniversitesi\\Masaüstü\\LibraryProject\\LibraryProject\\LibraryProject.csproj",
+  "projectFilePath": "C:\\Users\\Kıymet\\source\\repos\\LibraryProject\\LibraryProject\\LibraryProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kıymet\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Kıymet\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
