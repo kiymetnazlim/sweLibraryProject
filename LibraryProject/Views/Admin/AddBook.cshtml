@@ -1,0 +1,121 @@
+﻿@{
+    ViewData["Title"] = "Add Book";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml"; // Layout dosyanızı burada belirleyebilirsiniz.
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Ekleme Formu</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FFEDD5; /* Çok açık turuncu */
+        }
+
+        .navbar {
+            background-color: #FF6F00; /* Açık turuncu */
+        }
+
+            .navbar .navbar-brand {
+                font-size: 24px;
+                font-weight: bold;
+                color: white; /* Logo beyaz olacak */
+            }
+
+            .navbar .nav-link {
+                font-weight: bold; /* Yazıları kalın yap */
+                color: white !important; /* Yazı rengi beyaz */
+            }
+
+                .navbar .nav-link:hover {
+                    color: #FF6F00; /* Hover rengi turuncu */
+                }
+
+            .navbar .logout button {
+                background-color: #FF6F00; /* Turuncu buton */
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+            }
+
+                .navbar .logout button:hover {
+                    background-color: #FF8C1A; /* Hover rengi turuncu */
+                }
+
+        /* DataTable Stil */
+        .dataTables_wrapper {
+            margin-top: 50px;
+        }
+
+        table.dataTable {
+            margin-top: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            table.dataTable thead {
+                margin-top: 20px;
+                background-color: #b4b1ae;
+                color: white;
+            }
+
+            table.dataTable td, table.dataTable th {
+                padding: 15px;
+            }
+
+            table.dataTable tbody tr:hover {
+                background-color: #FFEDD5;
+            }
+
+        .search-container {
+            margin-top: 100px; /* Navbar'ın altına yerleşmesi için */
+            margin-bottom: 30px; /* DataTable ile arasında boşluk */
+        }
+
+        .icon-size {
+            width: 40px; /* İstediğiniz boyutu buradan ayarlayabilirsiniz */
+            height: 40px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+  
+
+    <div class="container form-container">
+
+        <form style="margin-top: 50px;">
+            <div class="form-group">
+                <label for="title">Kitap Adı</label>
+                <input type="text" class="form-control" id="title" placeholder="Kitap adı giriniz">
+            </div>
+            <div class="form-group">
+                <label for="author">Yazar</label>
+                <input type="text" class="form-control" id="author" placeholder="Yazar adı giriniz">
+            </div>
+            <div class="form-group">
+                <label for="genre">Tür</label>
+                <input type="text" class="form-control" id="genre" placeholder="Kitap türü giriniz">
+            </div>
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text" class="form-control" id="isbn" placeholder="ISBN giriniz">
+            </div>
+            <div class="button-container"> <button type="submit" class="btn btn-primary" style="background-color:#FF6F00; display: flex; align-items: center;">Kitap Ekle</button> </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
