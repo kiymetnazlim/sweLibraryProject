@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Book Details";
+    Layout = "~/Pages/Shared/_HomeLayout.cshtml"; // Layout dosyanızı burada belirleyebilirsiniz.
+}
+
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -105,67 +110,72 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="https://cdn-icons-png.flaticon.com/512/5823/5823722.png" class="icon-size" alt="Logo">
-            </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    @model LibraryProject.Models.Book
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ana Sayfa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Rezervasyon</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Favoriler</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ödeme Geçmişi</a>
-                    </li>
-                </ul>
+    @{
+        ViewData["Title"] = "Kitap Detayı";
+    }
 
-                <div class="logout">
-                    <button><i class="fas fa-sign-out-alt"></i> Çıkış Yap</button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Kitap Detayı -->
     <div class="container mt-5 book-detail">
         <div class="row book-info">
             <!-- Kitap İkonu -->
             <div class="col-md-2 book-img">
-                <i class="fas fa-book"></i> <!-- Kitap ikonu -->
+                <i class="fas fa-book"></i>
             </div>
 
             <!-- Kitap Bilgileri -->
             <div class="col-md-10 book-description">
-                <h2>Veronica Ölmek İstiyor</h2>
-                <h5>Yazar: YMine Altuğ</h5>
-                <p><strong>Açıklama:</strong> Bu kitap hakkında detaylı bir açıklama buraya gelecek. Kitap hakkında daha fazla bilgi, inceleme ve diğer bilgiler burada yer alacak. Kitap içeriği ile ilgili çeşitli konulara değinilebilir.</p>
-                <p><strong>Yayın Tarihi:</strong> 2024</p>
+                <h2>@Model.Title</h2>
+                <h5>Yazar: @Model.Author</h5>
+                <p><strong>Türü:</strong> @Model.Genre</p>
+                <p><strong>Yayın Yılı:</strong> @(Model.PublicationYear.HasValue ? Model.PublicationYear.ToString() : "Bilinmiyor")</p>
+                <p><strong>ISBN:</strong> @Model.ISBN</p>
+                <p><strong>Raf Konumu:</strong> @Model.ShelfLocation</p>
+                <p><strong>Durum:</strong> @(Model.AvailabilityStatus ? "Uygun" : "Uygun Değil")</p>
 
                 <!-- Rezerve Et Butonu -->
-                <div class="reserve-btn">
-                    <button class="btn">Rezerve Et</button>
-                </div>
+                @if (Model.AvailabilityStatus && !Model.IsReserved)
+                {
+                    <div class="reserve-btn">
+                        <button class="btn" id="reserve-btn" data-bookid="@Model.BookId">Rezerve Et</button>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-danger">Bu kitap şu anda rezerve edilemez.</p>
+                }
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS ve popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#reserve-btn').on('click', function () {
+                const bookId = $(this).data('bookid');
+
+                $.ajax({
+                    url: '/Book/ReserveBook',
+                    type: 'POST',
+                    data: { bookId: bookId },
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            $('#reserve-btn').prop('disabled', true); // Butonu devre dışı bırak
+                            $('#reserve-btn').text('Kitap Rezerve Edildi'); // Buton metnini güncelle
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function () {
+                        alert('Rezervasyon sırasında bir hata oluştu.');
+                    }
+                });
+            });
+        });
+    </script>
+
+
 </body>
 </html>

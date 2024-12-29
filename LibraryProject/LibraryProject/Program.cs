@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using LibraryProject; // MyDbContext s�n�f�n� dahil et
+using LibraryProject;
+using LibraryProject.Models;// MyDbContext s�n�f�n� dahil et
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<LibraryDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("LibraryDbContext")));
 
+// Add distributed memory cache and session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session süresi
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
 
@@ -22,6 +32,9 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseSession(); // Add this line to enable session
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -95,7 +108,7 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "addbook",
-    pattern: "admin/search-page",
+    pattern: "admin/add-book",
     defaults: new { controller = "Admin", action = "AddBook" });
 
 

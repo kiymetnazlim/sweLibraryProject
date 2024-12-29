@@ -28,7 +28,12 @@ namespace LibraryProject.Controllers
             ViewData["reservationCount"] = reservationCount;
             return View();
         }
-        // Rezervasyon yönetim sayfası
+       
+
+        public IActionResult BookManagement()
+        {
+            return View(); // Ana sayfa görüntülenir
+        }
         public async Task<IActionResult> ReservationManagement()
         {
             var reservations = await _context.Reservations
@@ -51,11 +56,6 @@ namespace LibraryProject.Controllers
             }
 
             return View(reservations);
-        }
-
-        public IActionResult BookManagement()
-        {
-            return View(); // Ana sayfa görüntülenir
         }
 
         public IActionResult AddBook()

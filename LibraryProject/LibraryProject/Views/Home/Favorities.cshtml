@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Favorities";
+    Layout = "~/Pages/Shared/_HomeLayout.cshtml"; // Layout dosyanızı burada belirleyebilirsiniz.
+}
+
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -114,41 +119,6 @@
     </style>
 </head>
 
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ana Sayfa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Rezervasyon</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Favoriler</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ödeme Geçmişi</a>
-                    </li>
-                </ul>
-
-                <div class="logout">
-                    <button><i class="fas fa-sign-out-alt"></i> Çıkış Yap</button>
-                </div>
-            </div>
-        </div>
-    </nav>
 
     <!-- Favori Kitaplar Listesi -->
     <div class="container book-list">

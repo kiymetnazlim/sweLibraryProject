@@ -1,9 +1,8 @@
 ﻿// USERCONTROLLER
-
+using LibraryProject.Models.ViewModels;
 using LibraryProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using LibraryProject.Models.ViewModel;
 using LibraryProject;
 
 public class UserController : Controller
@@ -52,7 +51,7 @@ public class UserController : Controller
     }
 
     // LogIn GET
-    public IActionResult Login()
+    public IActionResult LogIn()
     {
         return View();
     }
@@ -60,7 +59,7 @@ public class UserController : Controller
     // LogIn POST
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Login(LogInViewModel model)
+    public IActionResult LogIn(LogInViewModel model)
     {
         if (ModelState.IsValid)
         {
@@ -78,7 +77,7 @@ public class UserController : Controller
                 }
                 else
                 {
-                    return RedirectToAction("ReservationManagement", "Admin"); // Kullanıcı sayfası
+                    return RedirectToAction("SearchPage", "Home"); // Kullanıcı sayfası
                     //NORMAL KULLANICI SAYFASINA GİDECEK
                 }
 
@@ -90,10 +89,11 @@ public class UserController : Controller
         return View(model);
     }
 
-    // Logout
+    [HttpPost]
     public IActionResult Logout()
     {
-        HttpContext.Session.Clear();
-        return RedirectToAction("Login");
+        HttpContext.Session.Clear(); // Oturumu temizler
+        return RedirectToAction("LogIn"); // LogIn sayfasına yönlendirir
     }
+
 }
