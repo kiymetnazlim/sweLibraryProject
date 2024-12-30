@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Reservation Management";
-    Layout = "~/Pages/Shared/_AdminLayout.cshtml"; // Layout dosyanızı burada belirleyebilirsiniz.
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -46,10 +46,6 @@
     </style>
 </head>
 <body>
-
-
-
-    <!-- Ana İçerik -->
     <div class="container mb-5">
         <table id="reservationsTable" class="table table-striped">
             <thead>
@@ -76,15 +72,13 @@
                             <td>@reservation.UserName</td>
                             <td>@reservation.BookTitle</td>
                             <td>@reservation.ReservationDate.ToString(System.Globalization.CultureInfo.InvariantCulture)</td>
-
                             <td class="@(reservation.ReservationStatus == "Onaylandı" ? "status-approved" :
-                              reservation.ReservationStatus == "Ödünç Verildi" ? "text-primary" : "status-pending")">
+                                reservation.ReservationStatus == "Ödünç Verildi" ? "text-primary" : "status-pending")">
                                 @reservation.ReservationStatus
                             </td>
                             <td>
                                 @if (reservation.ReservationStatus == "Bekliyor")
                                 {
-
                                     <button class="btn btn-info btn-sm lend-btn" data-id="@reservation.ReservationId">Ödünç Ver</button>
                                 }
                                 else if (reservation.ReservationStatus == "Onaylandı")
@@ -103,66 +97,54 @@
         </table>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Onayla butonuna tıklanma
-            document.querySelectorAll('.approve-btn').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const reservationId = this.getAttribute('data-id');
-                    fetch(/Reservation/Approve/${reservationId}, { method: 'POST' })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                // Butonun durumunu değiştirme
-                                const row = btn.closest('tr');
-                                const statusCell = row.querySelector('td:nth-child(4)');
-                                statusCell.textContent = 'Onaylandı';
-                                statusCell.classList.remove('status-pending');
-                                statusCell.classList.add('status-approved');
-
-                                const approveButton = row.querySelector('.approve-btn');
-                                approveButton.textContent = 'Onaylandı';
-                                approveButton.disabled = true; // Onaylandı butonunu devre dışı bırak
-
-                                const lendButton = row.querySelector('.lend-btn');
-                                lendButton.style.display = 'inline-block'; // 'Ödünç Ver' butonunu göster
-                            } else {
-                                alert("Onaylama sırasında bir hata oluştu.");
-                            }
-                        });
-                });
-            });
-
-            // Ödünç Ver butonuna tıklanma
-            document.querySelectorAll('.lend-btn').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const reservationId = this.getAttribute('data-id');
-                    fetch(/Reservation/Lend/${reservationId}, { method: 'POST' })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                // Butonun durumunu değiştirme
-                                const row = btn.closest('tr');
-                                const statusCell = row.querySelector('td:nth-child(4)');
-                                statusCell.textContent = 'Ödünç Verildi';
-                                statusCell.classList.remove('status-approved');
-                                statusCell.classList.add('text-primary'); // Ödünç Verildi durumu için renk değişikliği
-
-                                const lendButton = row.querySelector('.lend-btn');
-                                lendButton.textContent = 'Ödünç Verildi';
-                                lendButton.disabled = true; // Ödünç Verildi butonunu devre dışı bırak
-                            } else {
-                                alert("Ödünç verme sırasında bir hata oluştu.");
-                            }
-                        });
-                });
-            });
-        });
-    </script>
-
+    <!-- Bootstrap ve DataTables -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // DataTable başlatma
+            const table = $('#reservationsTable').DataTable();
+
+            // Ödünç Ver butonlarına tıklama işlevlerini ekleyen fonksiyon
+            function attachLendButtonListeners() {
+                document.querySelectorAll('.lend-btn').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const reservationId = this.getAttribute('data-id');
+                        fetch(`/Reservation/Lend/${reservationId}`, { method: 'POST' })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    const row = btn.closest('tr');
+                                    const statusCell = row.querySelector('td:nth-child(4)');
+                                    statusCell.textContent = 'Ödünç Verildi';
+                                    statusCell.classList.remove('status-approved');
+                                    statusCell.classList.add('text-primary');
+
+                                    btn.textContent = 'Ödünç Verildi';
+                                    btn.disabled = true;
+                                } else {
+                                    alert("Ödünç verme sırasında bir hata oluştu.");
+                                }
+                            })
+                            .catch(error => {
+                                console.error("Hata:", error);
+                                alert("Bir hata oluştu.");
+                            });
+                    });
+                });
+            }
+
+            // Sayfa ilk yüklendiğinde butonlara işlev ekle
+            attachLendButtonListeners();
+
+            // DataTables 'draw' olayı tetiklendiğinde yeniden bağla
+            table.on('draw', function () {
+                attachLendButtonListeners();
+            });
+        });
+    </script>
 </body>
 </html>

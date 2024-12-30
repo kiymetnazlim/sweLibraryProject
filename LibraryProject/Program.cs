@@ -108,8 +108,8 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "addbook",
-    pattern: "admin/search-page",
-    defaults: new { controller = "Admin", action = "AddBook" });
+    pattern: "admin/add-book",
+    defaults: new { controller = "Book", action = "AddBook" });
 
 
 

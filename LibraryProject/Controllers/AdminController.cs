@@ -30,14 +30,35 @@ namespace LibraryProject.Controllers
         }
        
 
-        public IActionResult BookManagement()
+         public async Task<IActionResult> BookManagement()
         {
-            return View(); // Ana sayfa görüntülenir
+            var books = await _context.Books.Include(b => b.Category).ToListAsync();
+            return View(books);
+        }
+        public async Task<IActionResult> ReservationManagement()
+        {
+            var reservations = await _context.Reservations
+                .Include(r => r.User)
+                .Include(r => r.Book)
+                .Select(r => new ReservationDto
+                {
+                    ReservationId = r.ReservationId,
+                    UserName = r.User.Name,
+                    BookTitle = r.Book.Title,
+                    ReservationDate = r.ReservationDate.ToString("dd.MM.yyyy"),
+                    ReservationStatus = r.ReservationStatus
+                })
+                .ToListAsync();
+
+            // Eğer veriler null ise boş bir liste gönderiyoruz.
+            if (reservations == null)
+            {
+                reservations = new List<ReservationDto>();
+            }
+
+            return View(reservations);
         }
 
-        public IActionResult AddBook()
-        {
-            return View(); // Ana sayfa görüntülenir
-        }
+        
     }
 }

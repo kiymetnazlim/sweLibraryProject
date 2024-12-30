@@ -1,4 +1,6 @@
-﻿@{
+﻿@using LibraryProject.Models
+@model List<LibraryProject.Models.Book>
+@{
     ViewData["Title"] = "Book Management";
     Layout = "~/Pages/Shared/_AdminLayout.cshtml"; // Layout dosyanızı burada belirleyebilirsiniz.
 }
@@ -92,12 +94,10 @@
 <body>
 
     <!-- Navbar -->
- 
-
     <!-- Kitaplar DataTable -->
     <div class="container">
+        <a href="~/Book/AddBook" style="margin-top: 50px;" class="btn btn-success">Kitap Ekle</a>
         <table id="booksTable" class="display">
-            <button style="margin-top: 50px;" class="btn btn-success">Kitap Ekle</button>
             <thead>
                 <tr>
                     <th>Kitap Adı</th>
@@ -107,13 +107,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1984</td>
-                    <td>George Orwell</td>
-                    <td>1949</td>
-                    <td><button class="btn btn-danger">Sil</button></td>
-                </tr>
-
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.PublicationYear</td>
+                        <td>
+                            <a href="@Url.Action("Delete", new { id = book.BookId })" class="btn btn-danger">Sil</a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
