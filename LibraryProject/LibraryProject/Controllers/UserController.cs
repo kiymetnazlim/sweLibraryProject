@@ -71,7 +71,7 @@ public class UserController : Controller
                 HttpContext.Session.SetInt32("UserId", user.UserId);
                 HttpContext.Session.SetString("UserName", user.Name);
 
-                if (user.Role == "Staff")
+                if (user.Role == "Admin")
                 {
                     return RedirectToAction("Index", "Admin"); // Admin sayfası
                 }

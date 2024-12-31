@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Kitap Ekle";
+
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Ekle</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        @if (ViewData["ErrorMessage"] != null)
+
+        {
+            <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+        }
+        @if (ViewData["Message"] != null)
+
+        {
+            <div class="alert alert-success">@ViewData["Message"]</div>
+        }
+
+        <form method="post" asp-controller="Book" asp-action="AddBook">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label for="Title">Kitap Adı</label>
+                <input type="text" class="form-control" id="Title" name="Title" placeholder="Kitap adı giriniz">
+            </div>
+
+            <div class="form-group">
+                <label for="Author">Yazar</label>
+                <input type="text" class="form-control" id="Author" name="Author" placeholder="Yazar adı giriniz">
+            </div>
+
+            <div class="form-group">
+                <label for="Genre">Tür</label>
+                <input type="text" class="form-control" id="Genre" name="Genre" placeholder="Tür giriniz">
+            </div>
+
+            <div class="form-group">
+                <label for="ISBN">ISBN</label>
+                <input type="text" class="form-control" id="ISBN" name="ISBN" placeholder="ISBN giriniz">
+            </div>
+
+            <div class="form-group">
+                <label for="PublicationYear">Yayın Yılı</label>
+                <input type="number" class="form-control" id="PublicationYear" name="PublicationYear" placeholder="Yayın yılı giriniz">
+            </div>
+
+            <div class="form-group">
+                <label for="ShelfLocation">Raf Konumu</label>
+                <input type="text" class="form-control" id="ShelfLocation" name="ShelfLocation" placeholder="Raf konumu giriniz">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

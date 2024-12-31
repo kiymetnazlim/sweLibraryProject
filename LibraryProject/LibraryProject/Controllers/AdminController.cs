@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace LibraryProject.Controllers
 {
     public class AdminController : Controller
@@ -15,6 +16,13 @@ namespace LibraryProject.Controllers
 
         public IActionResult Index()
         {
+
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "User"); // Eğer giriş yapmamışsa, giriş sayfasına yönlendir
+            }
             // Kitap sayısını veritabanından çekiyoruz
             var bookCount = _context.Books.Count();
 
@@ -30,12 +38,26 @@ namespace LibraryProject.Controllers
         }
        
 
-        public IActionResult BookManagement()
+         public async Task<IActionResult> BookManagement()
         {
-            return View(); // Ana sayfa görüntülenir
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "User"); // Eğer giriş yapmamışsa, giriş sayfasına yönlendir
+            }
+
+            var books = await _context.Books.Include(b => b.Category).ToListAsync();
+            return View(books);
         }
         public async Task<IActionResult> ReservationManagement()
         {
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "User"); // Eğer giriş yapmamışsa, giriş sayfasına yönlendir
+            }
             var reservations = await _context.Reservations
                 .Include(r => r.User)
                 .Include(r => r.Book)
@@ -57,10 +79,30 @@ namespace LibraryProject.Controllers
 
             return View(reservations);
         }
-
-        public IActionResult AddBook()
+        [HttpGet]
+        [HttpGet]
+        public ActionResult Delete(int id)
         {
-            return View(); // Ana sayfa görüntülenir
+            try
+            {
+                var book = _context.Books.FirstOrDefault(b => b.BookId == id);
+               
+
+                _context.Books.Remove(book);
+                _context.SaveChanges();
+
+                return RedirectToAction("BookManagement");
+            }
+            catch (Exception ex)
+            {
+                // Hata mesajını kontrol edin
+                Console.WriteLine(ex.Message);
+                return View("Error");
+            }
         }
+
     }
+
+
 }
+

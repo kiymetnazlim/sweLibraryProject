@@ -1,5 +1,48 @@
-﻿@{
+﻿
+@using LibraryProject.Models
+@model IEnumerable<Book> // Modeli doğru şekilde tanımlayın
+
+
+@{
     ViewData["Title"] = "Book List";
 }
 
 <h2>Arama Sonuucunda Kitapların Listeleneceği Sayfa</h2>
+
+
+@{
+    ViewData["Title"] = "Books Index";
+}
+
+<h1>Books</h1>
+
+<p>
+    <a href="@Url.Action("Create")">Create New Book</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Genre</td>
+                <td>@book.Category?.Name</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = book.BookId })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = book.BookId })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

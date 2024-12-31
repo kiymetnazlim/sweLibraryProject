@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LibraryProject.DTO;
 using LibraryProject.Models;
+using System;
 
 namespace LibraryProject.Controllers
 {
@@ -79,22 +80,10 @@ namespace LibraryProject.Controllers
 
             return Json(new { success = false, message = "Aktarılacak veri bulunamadı." });
         }
-        public IActionResult ReservationHistory()
-        {
-            // Ödünç verilen rezervasyonları filtreleyin
-            var reservations = _context.Reservations
-                .Where(r => r.ReservationStatus == "Ödünç Verildi")
-                .Select(r => new ReservationDto
-                {
-                    ReservationId = r.ReservationId,
-                    UserName = r.User.Name,
-                    BookTitle = r.Book.Title,
-                    // ReservationDate = r.ReservationDate,
-                    ReservationStatus = r.ReservationStatus
-                })
-                .ToList();
 
-            return View(reservations);
+       
+
+        
         }
     }
-}
+

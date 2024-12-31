@@ -19,7 +19,7 @@ namespace LibraryProject.Controllers
             _context = context;
         }
         [HttpGet]
-       
+
         public IActionResult BookList()
         {
             return View();
@@ -43,14 +43,18 @@ namespace LibraryProject.Controllers
         }
         [HttpPost]
         public IActionResult ReserveBook(int bookId)
-
         {
+            // Oturumdan kullanıcı ID'sini al
             var userId = HttpContext.Session.GetInt32("UserId");
+            Console.WriteLine($"Oturumdaki UserId: {userId}");
 
+            // Kullanıcı giriş yapmamışsa giriş sayfasına yönlendir
             if (userId == null)
             {
-                return RedirectToAction("Login", "User"); // Eğer giriş yapmamışsa, giriş sayfasına yönlendir
+                return RedirectToAction("Login", "User");
             }
+
+            // Kitap veritabanında mevcut mu kontrol et
             var book = _context.Books.FirstOrDefault(b => b.BookId == bookId);
 
             if (book == null)
@@ -67,13 +71,10 @@ namespace LibraryProject.Controllers
                 return Json(new { success = false, message = "Bu kitap zaten rezerve edilmiştir." });
             }
 
-            // Kullanıcı bilgileri burada alınmalı (örneğin, mevcut kullanıcıyı almak için)
-            int loggedInUserId = 1; // Burada, mevcut oturumdaki kullanıcı ID'sini almanız gerekebilir.
-
             // Yeni rezervasyon nesnesi oluştur
             var reservation = new Reservation
             {
-                UserId = loggedInUserId,
+                UserId = userId.Value, // Oturumdan alınan kullanıcı ID'sini kullan
                 BookId = bookId,
                 ReservationDate = DateTime.UtcNow,
                 AvailableDate = DateTime.UtcNow.AddDays(7), // 7 gün sonra kitap kullanılabilir
@@ -86,9 +87,49 @@ namespace LibraryProject.Controllers
 
             return Json(new { success = true, message = "Rezervasyon başarılı!" });
         }
+
+        public IActionResult AddBook()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddBook(IFormCollection form)
+        {
+            try
+            {
+                // Yeni kitap nesnesi oluştur
+                var book = new Book
+                {
+                    Title = form["Title"],
+                    Author = form["Author"],
+                    Genre = form["Genre"],
+                    ISBN = form["ISBN"],
+                    PublicationYear = int.Parse(form["PublicationYear"]),
+                    ShelfLocation = form["ShelfLocation"],
+                    AvailabilityStatus = true,
+                };
+
+                // Veriyi veritabanına ekle
+                _context.Books.Add(book);
+                await _context.SaveChangesAsync();
+
+                // Başarı mesajı
+                ViewData["Message"] = "Kitap başarıyla eklendi!";
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = "Bir hata oluştu: "+ ex.InnerException?.Message;
+                return View();
+            }
+        }
+
+
+
+
     }
-
-
 }
 
 
