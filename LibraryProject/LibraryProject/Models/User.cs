@@ -10,7 +10,7 @@
         public string? ContactDetails { get; set; }
 
         // Navigation properties
-        public ICollection<Borrowing> Borrowings { get; set; }
+        
         public ICollection<Favority> Favorities { get; set; }
         public ICollection<Reservation> Reservations { get; set; }
     }

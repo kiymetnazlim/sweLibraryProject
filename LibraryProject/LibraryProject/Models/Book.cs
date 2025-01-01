@@ -16,7 +16,7 @@
 
         // Navigation properties
         public Category Category { get; set; }
-        public ICollection<Borrowing> Borrowings { get; set; }
+        
         public ICollection<Favority> Favorities { get; set; }
         public ICollection<Reservation> Reservations { get; set; }
     }

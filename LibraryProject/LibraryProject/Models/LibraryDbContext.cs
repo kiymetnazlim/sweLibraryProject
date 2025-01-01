@@ -11,7 +11,7 @@ namespace LibraryProject
 
         // DbSets for each table
         public DbSet<Book> Books { get; set; }
-        public DbSet<Borrowing> Borrowing { get; set; }
+        
         public DbSet<Category> Categories { get; set; }
         public DbSet<Favority> Favorities { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
@@ -21,7 +21,7 @@ namespace LibraryProject
         {
             // Configure the primary keys
             modelBuilder.Entity<Book>().HasKey(b => b.BookId);
-            modelBuilder.Entity<Borrowing>().HasKey(b => b.BorrowId);
+           
             modelBuilder.Entity<Category>().HasKey(c => c.CategoryId);
             modelBuilder.Entity<Favority>().HasKey(f => f.FavorityId);
             modelBuilder.Entity<Reservation>().HasKey(r => r.ReservationId);
@@ -33,15 +33,9 @@ namespace LibraryProject
                 .WithMany(c => c.Books) // Category has many Books
                 .HasForeignKey(b => b.CategoryId);
 
-            modelBuilder.Entity<Borrowing>()
-                .HasOne(b => b.User)
-                .WithMany(u => u.Borrowings) // User has many Borrowings
-                .HasForeignKey(b => b.UserId);
+            
 
-            modelBuilder.Entity<Borrowing>()
-                .HasOne(b => b.Book)
-                .WithMany(bk => bk.Borrowings) // Book has many Borrowings
-                .HasForeignKey(b => b.BookId);
+           
 
             modelBuilder.Entity<Favority>()
                 .HasOne(f => f.User)

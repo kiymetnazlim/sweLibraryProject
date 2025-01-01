@@ -44,46 +44,14 @@ namespace LibraryProject.Controllers
         }
 
         // Yeni: Ödünç verilen kitapları Borrowing tablosuna aktaran metod
-        [HttpPost]
-        public async Task<IActionResult> TransferBorrowedBooks()
-        {
-            // Status değeri "Ödünç Verildi" olan Reservation kayıtlarını alın
-            var reservations = await _context.Reservations
-                .Where(r => r.ReservationStatus == "Ödünç Verildi")
-                .Include(r => r.Book)  // Kitap bilgilerini dahil et
-                .Include(r => r.User)  // Kullanıcı bilgilerini dahil et
-                .ToListAsync();
+        
 
-            if (reservations.Any())
-            {
-                foreach (var reservation in reservations)
-                {
-                    // Borrowing nesnesi oluştur ve alanları doldur
-                    var borrowing = new Borrowing
-                    {
-                        UserId = reservation.UserId,
-                        BookId = reservation.BookId,
-                        BorrowDate = DateTime.Now, // Ödünç alınma tarihi
-                        DueDate = DateTime.Now.AddDays(14), // 2 hafta sonrası
-                        Status = "Borrowed" // Varsayılan durum
-                    };
-
-                    // Borrowing tablosuna ekle
-                    _context.Borrowing.Add(borrowing);
-                }
-
-                // Veritabanını kaydet
-                await _context.SaveChangesAsync();
-
-                return Json(new { success = true, message = "Veriler başarıyla aktarıldı." });
-            }
-
-            return Json(new { success = false, message = "Aktarılacak veri bulunamadı." });
+          
         }
 
        
 
         
         }
-    }
+   
 

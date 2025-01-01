@@ -136,3 +136,4 @@ C:\Users\Kıymet\source\repos\LibraryProject\LibraryProject\obj\Debug\net8.0\ref
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryProject\obj\Debug\net8.0\LibraryProject.pdb
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryProject\obj\Debug\net8.0\LibraryProject.genruntimeconfig.cache
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryProject\obj\Debug\net8.0\ref\LibraryProject.dll
+C:\Users\Kıymet\source\repos\LibraryProject\LibraryProject\bin\Debug\net8.0\Newtonsoft.Json.dll
