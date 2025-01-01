@@ -67,8 +67,9 @@
                     <button type="submit" class="btn btn-primary">Giriş Yap</button>
                 </div>
                 <p class="text-center mt-3 text-muted">
-                    Hesabınız yok mu? <a asp-controller="User" asp-action="Register" class="link">Kayıt Ol</a>
+                    Hesabınız yok mu ? <a href="@Url.Action("Register", "User")" class="link">Kayıt Ol</a>
                 </p>
+
             </form>
         </div>
     </div>

@@ -99,9 +99,13 @@ namespace LibraryProject.Controllers
         {
             try
             {
+                // Mevcut en yüksek ID değerini al ve artır
+                int nextId = _context.Books.Any() ? _context.Books.Max(b => b.BookId) + 1 : 1;
+
                 // Yeni kitap nesnesi oluştur
                 var book = new Book
                 {
+                    BookId = nextId, // Bir sonraki ID'yi ata
                     Title = form["Title"],
                     Author = form["Author"],
                     Genre = form["Genre"],
@@ -121,10 +125,11 @@ namespace LibraryProject.Controllers
             }
             catch (Exception ex)
             {
-                ViewData["ErrorMessage"] = "Bir hata oluştu: "+ ex.InnerException?.Message;
+                ViewData["ErrorMessage"] = "Bir hata oluştu: " + ex.InnerException?.Message;
                 return View();
             }
         }
+
 
 
 

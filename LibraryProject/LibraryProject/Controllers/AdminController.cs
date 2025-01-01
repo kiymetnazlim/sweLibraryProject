@@ -15,16 +15,18 @@ namespace LibraryProject.Controllers
         }
 
         public IActionResult Index()
+      
         {
+            var role = HttpContext.Session.GetString("UserRole"); // Kullanıcı rolünü al
 
-            var userId = HttpContext.Session.GetInt32("UserId");
-
-            if (userId == null)
+            if (role != "Admin") // Eğer rol admin değilse
             {
-                return RedirectToAction("Login", "User"); // Eğer giriş yapmamışsa, giriş sayfasına yönlendir
+                return RedirectToAction("LogIn", "User"); // Giriş sayfasına yönlendir
             }
-            // Kitap sayısını veritabanından çekiyoruz
-            var bookCount = _context.Books.Count();
+
+      
+        // Kitap sayısını veritabanından çekiyoruz
+        var bookCount = _context.Books.Count();
 
             // Üye sayısını veritabanından çekiyoruz
             var userCount = _context.Users.Count();

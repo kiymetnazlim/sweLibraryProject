@@ -1,7 +1,90 @@
 ﻿@{
-    ViewData["Title"] = "Profiles";
-    Layout = "~/Pages/Shared/_HomeLayout.cshtml"; // Layout dosyanızı burada belirleyebilirsiniz.
+    ViewData["Title"] = "Kütüphane Kullanıcı Profili";
+    Layout = "~/Pages/Shared/_HomeLayout.cshtml"; // Layout dosyanız burada belirleyebilirsiniz.
+    var username = ViewData["Username"]?.ToString() ?? "Misafir"; // Get username from ViewData or default to "Misafir"
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+        }
 
-<h2>Profil Sayfasına Hoşgeldiniz</h2>
+        .profile-header {
+            background-color: rgb(224, 126, 39);
+            height: 150px;
+        }
+
+            .profile-header img {
+                margin: 25px;
+                height: 100px;
+            }
+
+        .profile-icon {
+            font-size: 6rem;
+            color: #FF8C00;
+            margin-top: -50px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #555;
+            border-left: 3px solid #FF8C00;
+            padding-left: 15px;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+        }
+
+        .card {
+            box-shadow: 6px, 4px, 6px, 4px,6px rgba(224, 126, 39, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <!-- Başlık Arka Plan -->
+
+            <div class="card-body text-center">
+                <!-- Profil İkonu -->
+                <i class="bi bi-person-circle profile-icon"></i>
+                <h4 class="card-title mt-3">@username</h4>
+                <p class="text-muted">Kütüphane Üyesi</p>
+
+                <!-- İlham Veren Söz -->
+                <blockquote class="quote mb-4">
+                    "Kitapların dünyasında kaybolmak, yeni dünyalar keşfetmektir."
+                </blockquote>
+
+                <!-- İletişim Bilgileri -->
+                <div class="d-flex justify-content-center gap-4 mb-4">
+                    <a href="mailto:ornek@eposta.com" class="text-decoration-none text-primary">
+                        <i class="icon bi bi-envelope"></i> E-posta
+                    </a>
+                    <a href="tel:+5551234567" class="text-decoration-none text-success">
+                        <i class="icon bi bi-telephone"></i> Telefon
+                    </a>
+                </div>
+
+                <!-- Kullanıcı Durumu ve Rozetler -->
+                <div class="d-flex justify-content-center gap-3">
+                    <span class="badge bg-success">Aktif Üye</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

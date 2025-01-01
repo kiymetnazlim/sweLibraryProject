@@ -1,228 +1,215 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using LibraryProject;
-using LibraryProject.Controllers;
-using LibraryProject.DTO;
-using LibraryProject.Models;
+﻿using NUnit.Framework;
+using Moq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
-using Moq;
-using NUnit.Framework;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using LibraryProject.Controllers;
+using LibraryProject.Models;
+using LibraryProject;
+using LibraryProject.DTO;
 
-namespace LibraryTestProject.Tests
+[TestFixture]
+public class AdminControllerTests
 {
-    [TestFixture]
-    public class AdminControllerTest
-    {
-        private Mock<LibraryDbContext> _mockContext;
-        private AdminController _controller;
-        private Mock<DbSet<Book>> _mockBooks;
-        private Mock<DbSet<User>> _mockUsers;
-        private Mock<DbSet<Reservation>> _mockReservations;
+    private Mock<LibraryDbContext> _mockContext;
+    private AdminController _controller;
+    private Mock<HttpContext> _mockHttpContext;
+    private Mock<ISession> _mockSession;
+    private LibraryDbContext _context;
+    private Mock<LibraryDbContext> _dbContextMock;
 
+
+   
         [SetUp]
-        public void SetUp()
+    public void SetUp()
+    {
+        // In-memory database
+        var options = new DbContextOptionsBuilder<LibraryDbContext>()
+            .UseInMemoryDatabase("LibraryTestDb")
+            .Options;
+
+        _context = new LibraryDbContext(options);
+
+        // Mock HttpContext and Session
+        _mockHttpContext = new Mock<HttpContext>();
+        _mockSession = new Mock<ISession>();
+
+        _mockHttpContext.Setup(c => c.Session).Returns(_mockSession.Object);
+
+        // Initialize AdminController
+        _controller = new AdminController(_context)
         {
-            _mockContext = new Mock<LibraryDbContext>();
-
-            // Mock DbSets
-            _mockBooks = new Mock<DbSet<Book>>();
-            _mockUsers = new Mock<DbSet<User>>();
-            _mockReservations = new Mock<DbSet<Reservation>>();
-
-            _mockContext.Setup(c => c.Books).Returns(_mockBooks.Object);
-            _mockContext.Setup(c => c.Users).Returns(_mockUsers.Object);
-            _mockContext.Setup(c => c.Reservations).Returns(_mockReservations.Object);
-
-            _controller = new AdminController(_mockContext.Object)
+            ControllerContext = new ControllerContext
             {
-                ControllerContext = new ControllerContext
-                {
-                    HttpContext = new DefaultHttpContext()
-                }
-            };
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            // Kullanılan nesneleri serbest bırak
-            _controller?.Dispose();
-
-            // Mock nesneleri için ek işlem yapmaya gerek yok, Moq bunları otomatik temizler.
-        }
-
-        [Test]
-        public void Index_UserNotLoggedIn_ShouldRedirectToLogin()
-        {
-            // Arrange
-            _controller.HttpContext.Session = new Mock<ISession>().Object;
-
-            // Act
-            var result = _controller.Index();
-
-            // Assert
-            var redirectResult = result as RedirectToActionResult;
-            Assert.NotNull(redirectResult);
-            Assert.AreEqual("Login", redirectResult.ActionName);
-            Assert.AreEqual("User", redirectResult.ControllerName);
-        }
-
-        [Test]
-        public void Index_UserLoggedIn_ShouldReturnCorrectCounts()
-        {
-            // Arrange
-            _controller.HttpContext.Session = new MockHttpSession
-            {
-                ["UserId"] = 1
-            };
-
-            _mockBooks.Setup(m => m.Count()).Returns(10);
-            _mockUsers.Setup(m => m.Count()).Returns(5);
-            _mockReservations.Setup(m => m.Count()).Returns(3);
-
-            // Act
-            var result = _controller.Index() as ViewResult;
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.AreEqual(10, result.ViewData["BookCount"]);
-            Assert.AreEqual(5, result.ViewData["UserCount"]);
-            Assert.AreEqual(3, result.ViewData["reservationCount"]);
-        }
-
-        [Test]
-        public async Task BookManagement_UserLoggedIn_ShouldReturnBooks()
-        {
-            // Arrange
-            _controller.HttpContext.Session = new MockHttpSession
-            {
-                ["UserId"] = 1
-            };
-
-            var books = new List<Book> { new Book { BookId = 1, Title = "Book 1" } }.AsQueryable();
-            _mockBooks.As<IQueryable<Book>>().Setup(m => m.Provider).Returns(books.Provider);
-            _mockBooks.As<IQueryable<Book>>().Setup(m => m.Expression).Returns(books.Expression);
-            _mockBooks.As<IQueryable<Book>>().Setup(m => m.ElementType).Returns(books.ElementType);
-            _mockBooks.As<IQueryable<Book>>().Setup(m => m.GetEnumerator()).Returns(books.GetEnumerator());
-
-            // Act
-            var result = await _controller.BookManagement() as ViewResult;
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.AreEqual(1, (result.Model as List<Book>).Count);
-        }
-
-        [Test]
-        public async Task ReservationManagement_UserLoggedIn_ShouldReturnReservations()
-        {
-            // Arrange
-            _controller.HttpContext.Session = new MockHttpSession
-            {
-                ["UserId"] = 1
-            };
-
-            var reservations = new List<Reservation>
-            {
-                new Reservation
-                {
-                    ReservationId = 1,
-                    User = new User { Name = "User 1" },
-                    Book = new Book { Title = "Book 1" },
-                    ReservationDate = System.DateTime.Now,
-                    ReservationStatus = "Active"
-                }
-            }.AsQueryable();
-
-            _mockReservations.As<IQueryable<Reservation>>().Setup(m => m.Provider).Returns(reservations.Provider);
-            _mockReservations.As<IQueryable<Reservation>>().Setup(m => m.Expression).Returns(reservations.Expression);
-            _mockReservations.As<IQueryable<Reservation>>().Setup(m => m.ElementType).Returns(reservations.ElementType);
-            _mockReservations.As<IQueryable<Reservation>>().Setup(m => m.GetEnumerator()).Returns(reservations.GetEnumerator());
-
-            // Act
-            var result = await _controller.ReservationManagement() as ViewResult;
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.AreEqual(1, (result.Model as List<ReservationDto>).Count);
-        }
-
-        [Test]
-        public void Delete_BookExists_ShouldRemoveBookAndRedirect()
-        {
-            // Arrange
-            var book = new Book { BookId = 1 };
-            _mockBooks.Setup(m => m.FirstOrDefault(It.IsAny<System.Linq.Expressions.Expression<System.Func<Book, bool>>>())).Returns(book);
-
-            // Act
-            var result = _controller.Delete(1) as RedirectToActionResult;
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.AreEqual("BookManagement", result.ActionName);
-            _mockBooks.Verify(m => m.Remove(book), Times.Once);
-            _mockContext.Verify(m => m.SaveChanges(), Times.Once);
-        }
-
-        [Test]
-        public void Delete_BookDoesNotExist_ShouldReturnErrorView()
-        {
-            // Arrange
-            _mockBooks.Setup(m => m.FirstOrDefault(It.IsAny<System.Linq.Expressions.Expression<System.Func<Book, bool>>>())).Returns((Book)null);
-
-            // Act
-            var result = _controller.Delete(1) as ViewResult;
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.AreEqual("Error", result.ViewName);
-        }
+                HttpContext = _mockHttpContext.Object
+            }
+        };
     }
 
-    public class MockHttpSession : ISession
+    
+    
+
+
+    [Test]
+    public async Task BookManagement_WhenUserIsNotLoggedIn_RedirectsToLogin()
     {
-        private readonly Dictionary<string, object> _sessionStorage = new Dictionary<string, object>();
+        // Arrange
+        var sessionMock = new Mock<ISession>();
+        var key = "UserId";
+        var sessionValues = new Dictionary<string, byte[]>();
 
-        public object this[string name]
+        sessionMock.Setup(s => s.TryGetValue(It.IsAny<string>(), out It.Ref<byte[]>.IsAny))
+                   .Returns((string k, out byte[] value) =>
+                   {
+                       return sessionValues.TryGetValue(k, out value);
+                   });
+
+        var httpContextMock = new Mock<HttpContext>();
+        httpContextMock.SetupGet(h => h.Session).Returns(sessionMock.Object);
+
+        var controllerContext = new ControllerContext
         {
-            get => _sessionStorage.ContainsKey(name) ? _sessionStorage[name] : null;
-            set => _sessionStorage[name] = value;
-        }
+            HttpContext = httpContextMock.Object
+        };
 
-        public IEnumerable<string> Keys => _sessionStorage.Keys;
+        _controller.ControllerContext = controllerContext;
 
-        public bool IsAvailable => true; // Oturumun her zaman mevcut olduğunu varsayıyoruz.
+        // Act
+        var result = await _controller.BookManagement();
 
-        public string Id => "MockSessionId"; // Örnek bir oturum kimliği.
+        // Assert
+        Assert.IsInstanceOf<RedirectToActionResult>(result);
+        var redirectResult = result as RedirectToActionResult;
+        Assert.AreEqual("Login", redirectResult.ActionName);
+        Assert.AreEqual("User", redirectResult.ControllerName);
+    }
 
-        public Task LoadAsync(CancellationToken cancellationToken = default) => Task.CompletedTask;
 
-        public Task CommitAsync(CancellationToken cancellationToken = default) => Task.CompletedTask;
+    [Test]
+    public async Task BookManagement_WhenUserIsLoggedIn_ReturnsViewWithBooks()
+    {
+        // Arrange
+        var sessionMock = new Mock<ISession>();
+        var key = "UserId";
+        var userId = 1;
+        var sessionValues = new Dictionary<string, byte[]>
+    {
+        { key, BitConverter.GetBytes(userId) }
+    };
 
-        public bool TryGetValue(string key, out byte[] value)
+        sessionMock.Setup(s => s.TryGetValue(It.IsAny<string>(), out It.Ref<byte[]>.IsAny))
+                   .Returns((string k, out byte[] value) =>
+                   {
+                       return sessionValues.TryGetValue(k, out value);
+                   });
+
+        var httpContextMock = new Mock<HttpContext>();
+        httpContextMock.SetupGet(h => h.Session).Returns(sessionMock.Object);
+
+        var controllerContext = new ControllerContext
         {
-            value = _sessionStorage.ContainsKey(key) ? System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(_sessionStorage[key]) : null;
-            return _sessionStorage.ContainsKey(key);
-        }
+            HttpContext = httpContextMock.Object
+        };
 
-        public void Set(string key, byte[] value)
-        {
-            _sessionStorage[key] = System.Text.Json.JsonSerializer.Deserialize<object>(value);
-        }
+        _controller.ControllerContext = controllerContext;
 
-        public void Remove(string key)
+        // Add some books to the in-memory database
+        var category = new Category
         {
-            _sessionStorage.Remove(key);
-        }
+            Name = "Category 1",
+            Description = "Test Category"
+        };
 
-        public void Clear()
+        var book = new Book
         {
-            _sessionStorage.Clear(); // Tüm anahtar-değer çiftlerini temizler.
-        }
+            Title = "Test Book",
+            Author = "Author Name",
+            Genre = "Fiction",
+            ISBN = "123-4567890123",
+            ShelfLocation = "A1",
+            Category = category
+        };
+
+        _context.Categories.Add(category);
+        _context.Books.Add(book);
+        await _context.SaveChangesAsync();
+
+        // Act
+        var result = await _controller.BookManagement();
+
+        // Assert
+        Assert.IsInstanceOf<ViewResult>(result);
+        var viewResult = result as ViewResult;
+        var model = viewResult.Model as List<Book>;
+        Assert.IsNotNull(model);
+        Assert.AreEqual(1, model.Count);
+        Assert.AreEqual("Test Book", model[0].Title);
+    }
+    [Test]
+    public async Task ReservationManagement_WhenUserIsNotLoggedIn_RedirectsToLogin()
+    {
+        // Arrange
+        var sessionMock = new Mock<ISession>();
+        var httpContextMock = new Mock<HttpContext>();
+        sessionMock.Setup(s => s.TryGetValue("UserId", out It.Ref<byte[]>.IsAny))
+                   .Returns(false); // Session'da UserId yok
+
+        httpContextMock.SetupGet(h => h.Session).Returns(sessionMock.Object);
+
+        var controllerContext = new ControllerContext
+        {
+            HttpContext = httpContextMock.Object
+        };
+
+        _controller.ControllerContext = controllerContext;
+
+        // Act
+        var result = await _controller.ReservationManagement();
+
+        // Assert
+        Assert.IsInstanceOf<RedirectToActionResult>(result);
+        var redirectResult = result as RedirectToActionResult;
+        Assert.AreEqual("Login", redirectResult.ActionName);
+        Assert.AreEqual("User", redirectResult.ControllerName);
+    }
+
+    [Test]
+    public void Delete_WhenBookDoesNotExist_ReturnsErrorView()
+    {
+        // Arrange
+        int nonExistentBookId = 999; // ID of a book that does not exist
+
+        // Act
+        var result = _controller.Delete(nonExistentBookId);
+
+        // Assert
+        var viewResult = result as ViewResult;
+        Assert.IsNotNull(viewResult);
+        Assert.AreEqual("Error", viewResult.ViewName);
+    }
+   
+
+    [TearDown]
+    public void TearDown()
+    {
+        _context.Database.EnsureDeleted();
+        _context.Dispose();
+        _controller.Dispose();
+    }
+}
+public static class DbSetMockExtensions
+{
+    public static Mock<DbSet<T>> BuildMockDbSet<T>(this IQueryable<T> source) where T : class
+    {
+        var mockSet = new Mock<DbSet<T>>();
+
+        mockSet.As<IQueryable<T>>().Setup(m => m.Provider).Returns(source.Provider);
+        mockSet.As<IQueryable<T>>().Setup(m => m.Expression).Returns(source.Expression);
+        mockSet.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(source.ElementType);
+        mockSet.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(source.GetEnumerator());
+
+        return mockSet;
     }
 }

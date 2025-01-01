@@ -1,7 +1,9 @@
 @using LibraryProject.Models
-@model List<LibraryProject.Models.Borrowing>
+@model List<LibraryProject.Models.Reservation>
+
 @{
     ViewData["Title"] = "Loan History";
+
     Layout = "~/Pages/Shared/_HomeLayout.cshtml"; // Layout dosyanızı burada belirleyebilirsiniz.
 }
 
@@ -38,72 +40,59 @@
             font-weight: bold;
         }
 
-        .modal-title {
-            color: #ff8c00;
+        .overdue {
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <div class="header">
-        <h1>Ödünç Alma Geçmişi</h1>
-    </div>
+ 
 
     <!-- Table Content -->
     <div class="container">
         @if (Model != null && Model.Any())
+
         {
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Kitap Adı</th>
                         <th>Yazar</th>
-                        <th>Ödünç Alma Tarihi</th>
-                        <th>İade Tarihi</th>
-                        <th>Durum</th>
+                        <th>Ödünç Tarihi</th>
+                        <th>İade Edilmesi Gereken Tarihi</th>
+                        <th>Ceza</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var borrowing in Model)
+                    @foreach (var reservation in Model)
                     {
-                        string modalId = $"borrowedModal-{borrowing.BookName.Replace(" ", "")}-{borrowing.BorrowDate:yyyyMMdd}";
+
+                        var dueDate = reservation.ReservationDate.AddDays(14);
+
+                        var today = DateTime.Now;
+
+                        var overdueDays = (today > dueDate) ? (today - dueDate).Days : 0;
+
+                        var penalty = overdueDays * 0.50m; // Günlük ceza 0.50 ₺
 
                         <tr>
-                            <td>@borrowing.BookName</td>
-                            <td>@borrowing.Book.Author</td>
-                            <td>@borrowing.BorrowDate.ToShortDateString()</td>
-                            <td>@(borrowing.DueDate.ToShortDateString() ?? "Teslim Edilmedi")</td>
-                            <td>
-                                <a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#@modalId">
-                                    Borç Durumu
-                                </a>
-
-                                <!-- Borrowed Modal -->
-                                <div class="modal fade" id="@modalId" tabindex="-1" aria-labelledby="borrowedModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="debtModalLabel">Borç Detayları</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p><strong>Kitap Adı:</strong> @borrowing.BookName</p>
-                                                <p><strong>Ceza Tutarı:</strong> @borrowing.CalculateOverdueFine()</p>
-                                                <p class="text-danger">
-                                                    Ödeme yalnızca elden yapılabilir. Lütfen kütüphaneye gidin.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <td>@reservation.Book.Title</td>
+                            <td>@reservation.Book.Author</td>
+                            <td>@reservation.ReservationDate.ToString("MM/dd/yyyy")</td>
+                            <td>@dueDate.ToString("MM/dd/yyyy")</td>
+                            <td class="@(penalty > 0 ? "overdue" : "")">
+                                @(penalty > 0 ? penalty.ToString("0.00") + " ₺" : "Ceza Yok")
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
         }
+
         else
+
         {
             <p>Henüz ödünç alınmış bir kitabınız yok.</p>
         }

@@ -1,4 +1,9 @@
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\CoverletSourceRootsMapping_LibraryTestProject
+C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.csproj.AssemblyReference.cache
+C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.AssemblyInfoInputs.cache
+C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.AssemblyInfo.cs
+C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.csproj.CoreCompileInputs.cache
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\testhost.dll
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\LibraryProject.deps.json
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\LibraryProject.runtimeconfig.json
@@ -22,6 +27,7 @@ C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
@@ -113,11 +119,6 @@ C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\LibraryProject.dll
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\bin\Debug\net8.0\LibraryProject.pdb
-C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.csproj.AssemblyReference.cache
-C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.AssemblyInfoInputs.cache
-C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.AssemblyInfo.cs
-C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.csproj.CoreCompileInputs.cache
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryT.571EE116.Up2Date
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\LibraryTestProject.dll
 C:\Users\Kıymet\source\repos\LibraryProject\LibraryTestProject\obj\Debug\net8.0\refint\LibraryTestProject.dll

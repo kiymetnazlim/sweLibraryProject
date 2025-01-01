@@ -27,14 +27,23 @@ public class UserController : Controller
     {
         if (ModelState.IsValid)
         {
+            // Yeni kullanıcı nesnesi oluştur
             var user = new User
             {
                 Name = model.Name,
-                Password = model.Password // Şifreleme yapmanız önerilir.
+                Password = model.Password, // Şifreleme yapılması önerilir
+                Role = "User" // Varsayılan olarak 'User' rolü ekleniyor
             };
 
             try
             {
+                // Mevcut en yüksek UserId'yi al
+                var lastUserId = _context.Users.Max(u => (int?)u.UserId) ?? 0;
+
+                // Yeni UserId değerini belirle (son UserId'nin bir fazlası)
+                user.UserId = lastUserId + 1;
+
+                // Kullanıcıyı veritabanına ekle
                 _context.Users.Add(user);
                 _context.SaveChanges();
             }
@@ -49,6 +58,7 @@ public class UserController : Controller
 
         return View(model);
     }
+
 
     // LogIn GET
     public IActionResult LogIn()
@@ -73,12 +83,13 @@ public class UserController : Controller
 
                 if (user.Role == "Admin")
                 {
-                    return RedirectToAction("Index", "Admin"); // Admin sayfası
+                    HttpContext.Session.SetString("UserRole", "Admin"); // Rolü session'a ekle
+                    return RedirectToAction("Index", "Admin");
                 }
-                else
+                else if (user.Role == "User")
                 {
-                    return RedirectToAction("SearchPage", "Home"); // Kullanıcı sayfası
-                    //NORMAL KULLANICI SAYFASINA GİDECEK
+                    HttpContext.Session.SetString("UserRole", "User"); // Kullanıcı rolünü session'a ekle
+                    return RedirectToAction("SearchPage", "Home");
                 }
 
             }
@@ -93,7 +104,7 @@ public class UserController : Controller
     public IActionResult Logout()
     {
         HttpContext.Session.Clear(); // Oturumu temizler
-        return RedirectToAction("LogIn"); // LogIn sayfasına yönlendirir
+        return RedirectToAction("LogIn","User"); // LogIn sayfasına yönlendirir
     }
 
 }

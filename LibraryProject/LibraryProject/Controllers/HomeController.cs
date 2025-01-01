@@ -43,9 +43,24 @@ namespace LibraryProject.Controllers
 
             if (userId == null)
             {
-                return RedirectToAction("Login", "User"); // Eðer giriþ yapmamýþsa, giriþ sayfasýna yönlendir
+                return RedirectToAction("Login", "User"); // If the user is not logged in, redirect to the login page
             }
+
+            // Retrieve the username for the logged-in user based on the userId
+            var username = GetUsernameById(userId.Value); // Assuming GetUsernameById is a method that fetches the username from the database
+
+            // Pass the username to the view
+            ViewBag.Username = username;
+
             return View();
+        }
+
+        private string GetUsernameById(int userId)
+        {
+            // Replace this with your actual logic to get the username from the database
+            // Example:
+            var user = _context.Users.FirstOrDefault(u => u.UserId == userId);
+            return user?.Name ?? "Guest"; // If user is not found, return "Guest"
         }
 
         public IActionResult SearchPage()
@@ -63,9 +78,15 @@ namespace LibraryProject.Controllers
             return View(books);
         }
 
-    }
+
+
 
     }
+
+
+
+
+}
 
 
 
