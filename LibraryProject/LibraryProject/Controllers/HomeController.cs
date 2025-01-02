@@ -1,9 +1,4 @@
 
-    //public IActionResult GoToReservation()
-    //{
-    //    return RedirectToAction("Index", "ReservationManagement");
-    //}
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,18 +17,19 @@ namespace LibraryProject.Controllers
 
         public IActionResult Index()
         {
-            return View(); // Views/Admin/ReservationManagement.cshtml döndürür
+            return View(); 
         }
-        
 
-       
+
+
         public IActionResult Favorities()
         {
             var userId = HttpContext.Session.GetInt32("UserId");
 
             if (userId == null)
             {
-                return RedirectToAction("Login", "User"); // Eğer giriş yapmamışsa, giriş sayfasına yönlendir
+                return RedirectToAction("Login", "User");
+               
             }
             return View();
         }
@@ -43,13 +39,12 @@ namespace LibraryProject.Controllers
 
             if (userId == null)
             {
-                return RedirectToAction("Login", "User"); // If the user is not logged in, redirect to the login page
+                return RedirectToAction("Login", "User"); 
             }
 
             // Retrieve the username for the logged-in user based on the userId
             var username = GetUsernameById(userId.Value); // Assuming GetUsernameById is a method that fetches the username from the database
 
-            // Pass the username to the view
             ViewBag.Username = username;
 
             return View();
@@ -57,8 +52,7 @@ namespace LibraryProject.Controllers
 
         private string GetUsernameById(int userId)
         {
-            // Replace this with your actual logic to get the username from the database
-            // Example:
+           
             var user = _context.Users.FirstOrDefault(u => u.UserId == userId);
             return user?.Name ?? "Guest"; // If user is not found, return "Guest"
         }

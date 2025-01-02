@@ -20,10 +20,7 @@ namespace LibraryProject.Controllers
         }
         [HttpGet]
 
-        public IActionResult BookList()
-        {
-            return View();
-        }
+       
         public IActionResult BookDetails(int bookId)
         {
             var userId = HttpContext.Session.GetInt32("UserId");

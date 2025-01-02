@@ -138,7 +138,6 @@
                 <p><strong>Yayın Yılı:</strong> @(Model.PublicationYear.HasValue ? Model.PublicationYear.ToString() : "Bilinmiyor")</p>
                 <p><strong>ISBN:</strong> @Model.ISBN</p>
                 <p><strong>Raf Konumu:</strong> @Model.ShelfLocation</p>
-                <p><strong>Durum:</strong> @(Model.AvailabilityStatus ? "Uygun" : "Uygun Değil")</p>
 
                 <!-- Rezerve Et Butonu -->
                 @if (Model.AvailabilityStatus && !Model.IsReserved)
